@@ -25,16 +25,19 @@ router.get('/', requireAuth, (req, res, next) => {
       return console.error(err);
     }
     else {
+      //array.sort, convert every thing to toUpperCase, 
       contacts.sort((x,y) => {
         let nameX = x.Name.toUpperCase();
         let nameY = y.Name.toUpperCase();
-
+        // x is less than y in the alphabet, Andy vs Jon will return -1 
         if(nameX < nameY){
           return -1;
         } 
+        // x is greater than y in the alphabet, Ray vs Andy will return +1
         if(nameX > nameY){
           return 1;
         }
+        // the two names match 
           return 0;
       });
       res.render('contacts/index', {
