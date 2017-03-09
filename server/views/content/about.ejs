@@ -1,0 +1,78 @@
+<% include ../partials/header.ejs %>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="row">
+      <h1>
+        <%= title %> Me
+      </h1>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false"
+                aria-controls="collapseOne"> Who Am I?</a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              Name: Jason Huang <br> Age: I am currently 25 years old.<br> Nationality: Canadian (Born and raised in Canada)
+              EH!!
+              <br> Ethnicity: Chinese<br> Horoscope: Libra<br> Current programming languages: C++, Java, Pug, React. I am
+              independent but prefer to work in teams<br>
+              <br>
+              <img src="Assets/images/Me.jpeg" alt="Mavis and Moi">
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                aria-controls="collapseTwo">
+                Education
+                </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              University + College <br> Currently in 5th Semester of Software Engineering- Interactive Gaming. I am enjoying
+              the Interactive Gaming program a lot. The languages are easy to learn but hard to master, I hope to one day
+              be able to develop my own application or mobile game.
+              <br> Other Degrees: I have a Bachelor of Science in Biology at Ryerson University.
+              <br>
+              <img class="image-center-V2" src="Assets/images/Sunflower (Mature).JPG" alt="Microscopic view of a sunflower">
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                aria-controls="collapseThree">
+                Hobbies
+                </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              <h2>Games</h2>
+              <p>
+                I play all kinds of games and they vary from mobile to PC. The game I play the most is on mobile called Soccer Spirits. Other
+                games I play are League Of Legends, Diablo 3, Overwatch, Undertale.
+                <br>
+                <br>
+                <img class="image-center" src="Assets/images/ss_home.jpg" alt="Soccer Spirits">
+                <br>
+                <h2>Outdoors</h2> Other than staying at home all day playing games, I love to go camping. I been to Algonquin
+                Park (Lake of Two Rivers, Pog Lake), Emily Provincial Park, and Earl Rowe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>

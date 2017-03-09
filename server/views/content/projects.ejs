@@ -1,0 +1,56 @@
+<% include ../partials/header.ejs %>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <h1>My
+          <%= title %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="section.css-table">
+    <div class="section.two-column">
+      <div class="section.cell">
+        <hr class="featurette-divider">
+        <div class="row.featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">
+              "Currently Involved" <br><br>
+              <span class="muted">What-To-Cook</span>
+            </h2>
+            <p class="lead">
+              Using React and Redux to create a single webpage application for users to search recipes with ease.<br> Type
+              in ingredients and it will search and show recipes with those ingredients. Using spoontacular API.<br>
+            </p>
+          </div>
+          <div class="col-md-5">
+            <img class="img.featurette-image.img-responsive.center-block" style="width:800px; height:400px" src="Assets/images/what-to-cook.png"
+              , alt="RecipeApp">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row.featurette">
+          <div class="col-md-7.col-md-push-5">
+            <h2 class="featurette-heading">
+              "Past Projects" <br><br>
+              <span class="muted">VR and Tablet Network Integration</span>
+            </h2>
+            <p class="lead">
+              Joined a VR Hackathon with some of my programming friends at Centennial College. Worked with SmokeBomb Entertainment using
+              Samasung Gear VR and Android phone/tablets<br> Our game idea was based off of a dungeon crawler.
+              The VR player can select tiles and form the map for the mobile player to run around and attack monsters.<br>
+            </p>
+          </div>
+          <div class="col-md-5.col-md-pull-7">
+            <img class="img.featurette-image.img-responsive.center-block" src="Assets/images/hackathon.jpeg" , alt="Hackathon">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
