@@ -25,7 +25,7 @@ router.get('/', requireAuth, (req, res, next) => {
       return console.error(err);
     }
     else {
-      //array.sort, convert every thing to toUpperCase, 
+      //array.sort, convert every thing to toUpperCase, SOURCE: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
       contacts.sort((x,y) => {
         let nameX = x.Name.toUpperCase();
         let nameY = y.Name.toUpperCase();
