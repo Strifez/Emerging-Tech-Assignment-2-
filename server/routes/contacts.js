@@ -1,12 +1,12 @@
-// books.js, Jason Huang, 300818592, Comp308-Midterm-Books 
+// contacts.js, Jason Huang, 300818592, Assignment 2- Authentication 
 
 // modules required for routing
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-// define the book model
-let book = require('../models/books');
+// define the contact model
+let contact = require('../models/contacts');
 
 // create a function to check if the user is authenticated
 function requireAuth(req, res, next) {
@@ -17,17 +17,17 @@ function requireAuth(req, res, next) {
   next();
 }
 
-/* GET books List page. READ */
+/* GET contact List page. READ */
 router.get('/', requireAuth, (req, res, next) => {
-  // find all books in the books collection
-  book.find( (err, books) => {
+  // find all contacts in the contacts collection
+  contact.find( (err, contacts) => {
     if (err) {
       return console.error(err);
     }
     else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books,
+      res.render('contacts/index', {
+        title: 'Contacts',
+        contacts: contacts,
         displayName: req.user.displayName
       });
     }
@@ -35,51 +35,49 @@ router.get('/', requireAuth, (req, res, next) => {
 
 });
 
-//  GET the Book Details page in order to add a new Book
+//  GET the Contact Details page in order to add a new Contact
 router.get('/add', requireAuth, (req, res, next) => {
-res.render('books/details', {
-    title: "Add a new Book",
-    books: '',
+res.render('contacts/details', {
+    title: "Add a Contact",
+    contacts: '',
     displayName: req.user.displayName
   });
 });
 
-// POST process the Book Details page and create a new Book - CREATE
+// POST process the Contact Details page and create a new Contact - CREATE
 router.post('/add', requireAuth, (req, res, next) => {
- let newGame = book({
-      "Title": req.body.title,
-      "Description": req.body.description,
-      "Price": req.body.price,
-      "Author": req.body.author,
-      "Genre": req.body.genre
+ let newGame = contact({
+      "Name": req.body.name,
+      "Phone": req.body.phone,
+      "Email": req.body.email
     });
 
-    book.create(newGame, (err, books) => {
+    contact.create(newGame, (err, contacts) => {
       if(err) {
         console.log(err);
         res.end(err);
       } else {
-        res.redirect('/books');
+        res.redirect('/contacts');
       }
     });
 });
 
-// GET the Book Details page in order to edit an existing Book
+// GET the Contact Details page in order to edit an existing Contact
 router.get('/:id', requireAuth, (req, res, next) => {
  try {
       // get a reference to the id from the url
       let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
-        // find one books by its id
-      book.findById(id, (err, books) => {
+        // find one contact by its id
+      contact.findById(id, (err, contacts) => {
         if(err) {
           console.log(err);
           res.end(error);
         } else {
-          // show the books details view
-          res.render('books/details', {
-              title: 'Books Details',
-              books: books,
+          // show the contact details view
+          res.render('contacts/details', {
+              title: 'Contact Details',
+              contacts: contacts,
               displayName: req.user.displayName
           });
         }
@@ -96,22 +94,20 @@ router.post('/:id', requireAuth,(req, res, next) => {
  // get a reference to the id from the url
     let id = req.params.id;
 
-     let updatedGame = book({
+     let updatedGame = contact({
       "_id": id,
-      "Title": req.body.title,
-      "Description": req.body.description,
-      "Price": req.body.price,
-      "Author": req.body.author,
-      "Genre": req.body.genre
+      "Name": req.body.name,
+      "Phone": req.body.phone,
+      "Email": req.body.email
     });
 
-    book.update({_id: id}, updatedGame, (err) => {
+    contact.update({_id: id}, updatedGame, (err) => {
       if(err) {
         console.log(err);
         res.end(err);
       } else {
-        // refresh the books List
-        res.redirect('/books');
+        // refresh the contact List
+        res.redirect('/contacts');
       }
     });
 
@@ -123,13 +119,13 @@ router.get('/delete/:id', requireAuth, (req, res, next) => {
 // get a reference to the id from the url
     let id = req.params.id;
 
-    book.remove({_id: id}, (err) => {
+    contact.remove({_id: id}, (err) => {
       if(err) {
         console.log(err);
         res.end(err);
       } else {
-        // refresh the books list
-        res.redirect('/books');
+        // refresh the contact list
+        res.redirect('/contacts');
       }
     });
 

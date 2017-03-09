@@ -1,4 +1,4 @@
-// routes/index.js, Jason Huang, 300818592, COMP308-W2017-AUTH 
+// routes/index.js, Jason Huang, 300818592, Assignment 2- Authentication
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -10,7 +10,7 @@ let UserModel = require('../models/users');
 let User = UserModel.User; //aliase for User Model - User Object
 
 // define the game model
-let book = require('../models/books');
+let contact = require('../models/contacts');
 
 // Create a function to check if the user is authenticated
 function requireAuth(req, res, next) {
@@ -25,7 +25,7 @@ function requireAuth(req, res, next) {
 router.get('/', (req, res, next) => {
 	res.render('content/index', {
 		title: 'Home',
-		books: '',
+		contacts: '',
 		displayName: req.user ? req.user.displayName: ''
 	 });
 });
@@ -33,7 +33,7 @@ router.get('/', (req, res, next) => {
 router.get('/about', (req, res, next) => {
 	res.render('content/about', {
 	title: 'About',
-	books: '',
+	contacts: '',
 	displayName: req.user ? req.user.displayName: ''
 	});
 });
@@ -41,7 +41,7 @@ router.get('/about', (req, res, next) => {
 router.get('/projects', (req, res, next) => {
 	res.render('content/projects', {
 	title: 'Projects',
-	books: '',
+	contacts: '',
 	displayName: req.user ? req.user.displayName: ''
 	});
 });
@@ -49,7 +49,7 @@ router.get('/projects', (req, res, next) => {
 router.get('/services', (req, res, next) => {
 	res.render('content/services', {
 	title: 'Services',
-	books: '',
+	contacts: '',
 	displayName: req.user ? req.user.displayName: ''
 	});
 });
@@ -57,7 +57,7 @@ router.get('/services', (req, res, next) => {
 router.get('/contact', (req, res, next) => {
 	res.render('content/contact', {
 	title: 'Contacts',
-	books: '',
+	contacts: '',
 	displayName: req.user ? req.user.displayName: ''
 	});
 });
@@ -69,19 +69,19 @@ router.get('/login', (req, res, next) => {
 		//render the Login page
 		res.render('auth/login', {
 			title: "Login",
-			books: '',
+			contacts: '',
 			messages: req.flash('loginMessage'),
 			displayName: req.user ? req.user.displayName: '' //? either .user or .displayname
 		});
 		return; 
 	} else {
-		return res.redirect('/books'); //redirect to games list
+		return res.redirect('/contacts'); //redirect to contacts list
 	}
 });
 
 // POST /Login - process the Login attempt
 router.post('/login', passport.authenticate('local', {
-	successRedirect: '/books',
+	successRedirect: '/contacts',
 	failureRedirect: '/login',
 	failureFlash: "Incorrect Username/Password", // match the loginMessage above
 }));
@@ -93,13 +93,13 @@ router.get('/register', (req, res, next)=>{
 		// render the registration page
 			res.render('auth/register', {
 			title: "Register",
-			books: '',
+			contacts: '',
 			messages: req.flash('registerMessage'),
 			displayName: req.user ? req.user.displayName : ''
 		});
 		return;
 	} else {
-		return res.redirect('/books'); // redirect to books list
+		return res.redirect('/contacts'); // redirect to books list
 	}
 });
 
@@ -128,7 +128,7 @@ router.post('/register', (req, res, next)=>{
 			}
 			// if registration is successful
 			return passport.authenticate('local')(req, res, ()=>{
-				res.redirect('/books');
+				res.redirect('/contacts');
 			});
 		});
 });

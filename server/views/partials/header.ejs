@@ -1,3 +1,4 @@
+<!-- header.ejs, Jason Huang, 300818592, Assignment 2 Authentication - Header Partial -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,12 +53,12 @@
         <% } %>
 
         <% if (typeof displayName == 'string' && displayName){ %> 
-          <% if(title == "books") { %>
-          <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
-          </i> Books List</a></li>
+          <% if(title == "contacts") { %>
+          <li class="active"><a href="/contacts"><i class="fa fa-address-book-o fa-lg">
+          </i> Contact List</a></li>
           <% } else { %>
-            <li><a href="/books"><i class="fa fa-book fa-lg">
-            </i> Books List</a></li>
+            <li><a href="/contacts"><i class="fa fa-address-book-o fa-lg">
+            </i> Contact List</a></li>
           <% } %>
           <% } %>
 
