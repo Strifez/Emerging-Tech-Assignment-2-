@@ -1,4 +1,4 @@
-// contacts.js, Jason Huang, 300818592, Assignment 2- Authentication 
+// contacts.js, Jason Huang, Portfolio Site, Assignment 2 Authentication - Contact Routes
 
 // modules required for routing
 let express = require('express');

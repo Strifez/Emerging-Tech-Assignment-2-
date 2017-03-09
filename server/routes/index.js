@@ -1,4 +1,4 @@
-// routes/index.js, Jason Huang, 300818592, Assignment 2- Authentication
+// index.js, Jason Huang, Portfolio Site, Assignment 2 Authentication - Main Index Routes
 // modules required for routing
 let express = require('express');
 let router = express.Router();

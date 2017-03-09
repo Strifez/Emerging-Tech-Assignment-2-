@@ -1,3 +1,4 @@
+//contacts.js, Jason Huang, Portfolio Site, Assignment 2 Authentication - Contact List Model 
 let mongoose = require('mongoose');
 
 //create a model class

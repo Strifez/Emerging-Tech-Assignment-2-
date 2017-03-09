@@ -1,3 +1,4 @@
+// user.js, Jason Huang, Portfolio Site, Assignment 2 Authentication - User Model 
 // require modules for our User Model
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema; //alias for mongoose Schema
